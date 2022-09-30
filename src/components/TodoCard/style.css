@@ -1,0 +1,52 @@
+.cardDiv{
+    width: 90%;
+    height: 60px;
+    background-color: #fff;
+    border: 2px solid rgb(209, 209, 209);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    gap: 15px;
+}
+
+.leftPanel-cardDiv , .rightPanel-cardDiv{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+.rightPanel-cardDiv{
+    font-size: 25px;
+    margin-right: 8px ;
+    visibility: hidden;
+}
+.cardDiv:hover .rightPanel-cardDiv{
+    visibility: visible;
+}
+
+.taskTitle{
+    color: rgb(153, 153, 153);
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.taskDoneBtn-off{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: rgb(192, 191, 191);
+    border: none;
+    cursor: pointer;
+}
+.taskDoneBtn-on{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #42b883;
+    border: none;
+    cursor: pointer;
+}
