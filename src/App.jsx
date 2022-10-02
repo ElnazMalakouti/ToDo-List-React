@@ -8,7 +8,6 @@ import TodoCard from './components/TodoCard'
 function App() {
 
   const [dataState , setDataState] = useState([])
-  const [taskCreateState , setTaskCreateState] = useState(false)
   
 
 
@@ -22,11 +21,17 @@ function App() {
           <Button btnTitle="Tasks Done"/>
           <Button btnTitle="Tasks"/>
         </div>
-        <div className={taskCreateState ? 'tasks-div-visible' : 'tasks-div-hidden'}>
-          <TodoCard dataState={dataState} setDataState={setDataState} taskTitle="reading some books"/>
+        <div className='tasks-container'>
+          {dataState && dataState.map(item => {
+            return <TodoCard
+             key={item.id} 
+             taskId={item.id} 
+             taskText={item.text}/>
+             })
+             }
         </div>
         <div className='add-input-div'>
-          <Input dataState={dataState} setDataState={setDataState} taskCreateState={taskCreateState} setTaskCreateState={setTaskCreateState}/>
+          <Input dataState={dataState} setDataState={setDataState}/>
         </div>
       </div>
     </div>

@@ -2,11 +2,11 @@ import "./style.css"
 import { FaEdit } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
 
-const TodoCard = ({dataState,setDataState}) => {
+const TodoCard = ({taskId , taskText}) => {
 
-    const taskId = dataState && dataState.map(item => item.id)
-    const taskText = dataState && dataState.map(item => item.text)
-    const taskInDone = dataState && dataState.map(item => item.inDone)
+    // const taskId = dataState && dataState.map(item => item.id)
+    // const taskText = dataState && dataState.map(item => item.text)
+    // const taskInDone = dataState && dataState.map(item => item.inDone)
 
 
     return(

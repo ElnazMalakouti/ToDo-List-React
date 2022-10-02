@@ -1,21 +1,21 @@
 import { useState } from "react"
 import "./style.css"
 
-const Input = ({dataState , setDataState, taskCreateState , setTaskCreateState}) => {
+const Input = ({dataState , setDataState}) => {
 
     const [inputState , setInputState] = useState('')
+    
 
 
     
-    async function clickHandle () {
+     function clickHandle () {
        const temp = 
             {
                 id : Date.now().toString(36),
                 text : inputState,
                 isDone : false
             }
-        await setDataState([...dataState , temp])
-        setTaskCreateState(true)
+         setDataState([...dataState , temp])
     }
 
 
