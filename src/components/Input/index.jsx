@@ -16,6 +16,7 @@ const Input = ({dataState , setDataState}) => {
                 isDone : false
             }
          setDataState([...dataState , temp])
+         setInputState('')
     }
 
 
@@ -23,7 +24,6 @@ const Input = ({dataState , setDataState}) => {
         <div className="input-btn-div">
             <input id="addInput" className="addInput" placeholder="New task" value={inputState} onChange={e => setInputState(e.target.value)}/>
             <button className="addBtn" onClick={clickHandle}>+</button>
-            {console.log(dataState)}
         </div>
     )
 }

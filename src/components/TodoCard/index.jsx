@@ -1,23 +1,47 @@
 import "./style.css"
 import { FaEdit } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
+import { useState } from "react";
 
-const TodoCard = ({taskId , taskText}) => {
+const TodoCard = ({taskId , taskText , dataState , setDataState , editTaskShow , setEditTaskShow}) => {
 
-    // const taskId = dataState && dataState.map(item => item.id)
-    // const taskText = dataState && dataState.map(item => item.text)
-    // const taskInDone = dataState && dataState.map(item => item.inDone)
+    const [taskDoneBtn , setTaskDoneBtn] = useState(false)
 
+    function editTask(newTask){
+        const newID = newTask.id
+        const newText = newTask.text
+        const newisDone = false
+
+    }
 
     return(
         <div className="cardDiv">
             <div className="leftPanel-cardDiv">
-                <button id={taskId} className="taskDoneBtn-off"></button>
+                <button id={taskId} onClick={()=>{
+                    setTaskDoneBtn(!taskDoneBtn)
+
+                    setDataState(dataState.map(item => {
+                        if(item.id === taskId){
+                            item.isDone = !item.isDone
+                            return {...item}
+                        }else{
+                            return item
+                        }
+                    }))
+                }} className={taskDoneBtn ? "taskDoneBtn-on" : "taskDoneBtn-off"}></button>
                 <p className="taskTitle">{taskText}</p>
             </div>
             <div className="rightPanel-cardDiv">
-                <FaEdit/>
-                <FaTrash/>
+
+                <button className="todoCard-hoverBtn" onClick={() => setEditTaskShow(true)}>
+                    <><FaEdit/></>
+                </button>
+
+                <button className="todoCard-hoverBtn" onClick={() => {
+                    setDataState(dataState.filter(item => item.id !== taskId))
+                }}>
+                    <><FaTrash/></>
+                </button>
             </div>
         </div>
     )

@@ -1,3 +1,24 @@
+.wholePage{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeBtn{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border-width: 1px;
+    background-color: transparent;
+}
+.editInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
 .todoDiv{
     width: 43%;
     height: 70%;
@@ -5,6 +26,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* opacity: 0; */
 }
 
 .todoTitle{

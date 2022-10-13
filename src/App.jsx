@@ -1,30 +1,60 @@
 import { useState } from 'react'
 import './App.css'
-import Button from './components/Button'
+import Button from './components/TasksButton'
 import InfoCard from './components/InfoCard'
+import InfoDoneCard from './components/InfoDoneCard'
 import Input from './components/Input'
 import TodoCard from './components/TodoCard'
+import TaskDoneButton from './components/TaskDoneButton'
+import TasksButton from './components/TasksButton'
+import EditTask from './components/EditTask'
 
 function App() {
 
   const [dataState , setDataState] = useState([])
+  const [haveDoneTask , setHaveDoneTask] = useState(false)
+  const [editTaskShow , setEditTaskShow] = useState(false)
+  
   
 
-
   return (
-    <div className='todoDiv'>
+  <div className='wholePage'>
+    <div className='todoDiv' style={editTaskShow ? {opacity : 0} : {opacity : 1}}>
       <p className='todoTitle'>Vue ToDo List</p>
       <div className='todoBox'>
         <div className='info-action-div'>
-          <InfoCard infoTitle="Tasks" taskCounter="2"/>
-          <InfoCard infoTitle="Tasks Done" taskCounter="2"/>
-          <Button btnTitle="Tasks Done"/>
-          <Button btnTitle="Tasks"/>
+
+          <InfoCard
+          infoTitle="Tasks" 
+          dataState={dataState} 
+          setDataState={setDataState}
+          />
+
+          <InfoDoneCard
+           infoTitle="Tasks Done" 
+           dataState={dataState} 
+           setDataState={setDataState} 
+           haveDoneTask={haveDoneTask}
+           setHaveDoneTask={setHaveDoneTask}
+           />
+
+          {haveDoneTask ? <TaskDoneButton btnTitle="Tasks Done" dataState={dataState} setDataState={setDataState}/> : null}
+          
+          <TasksButton
+           btnTitle="Tasks"
+           dataState={dataState} 
+           setDataState={setDataState}
+          />
+
         </div>
         <div className='tasks-container'>
           {dataState && dataState.map(item => {
             return <TodoCard
-             key={item.id} 
+             dataState={dataState}
+             setDataState={setDataState}
+             editTaskShow={editTaskShow}
+             setEditTaskShow={setEditTaskShow}
+             key={item.id}  
              taskId={item.id} 
              taskText={item.text}/>
              })
@@ -35,6 +65,9 @@ function App() {
         </div>
       </div>
     </div>
+
+    {editTaskShow ? <EditTask editTaskShow={editTaskShow} setEditTaskShow={setEditTaskShow}/> : null}
+  </div>
   )
 }
 

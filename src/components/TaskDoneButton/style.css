@@ -1,4 +1,4 @@
-.buttonContainer{
+.TaskButtonContainer{
     width: max-content;
     height: 28px;
     background-color: #f65050;
@@ -11,6 +11,7 @@
     padding: 8px;
     gap: 10px;
     cursor: pointer;
+    border: none;
 }
 .icon{
     font-size: 1rem;

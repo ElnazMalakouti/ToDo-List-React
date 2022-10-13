@@ -20,9 +20,9 @@
     gap: 15px;
 }
 .rightPanel-cardDiv{
-    font-size: 25px;
     margin-right: 8px ;
     visibility: hidden;
+    gap: 20px;
 }
 .cardDiv:hover .rightPanel-cardDiv{
     visibility: visible;
@@ -41,7 +41,18 @@
     background-color: rgb(192, 191, 191);
     border: none;
     cursor: pointer;
+
 }
+
+.taskDoneBtn-off:active{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #42b883;
+    border: none;
+    cursor: pointer;
+}
+
 .taskDoneBtn-on{
     height: 25px;
     width: 25px;
@@ -49,4 +60,19 @@
     background-color: #42b883;
     border: none;
     cursor: pointer;
+}
+
+
+.todoCard-hoverBtn{
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 25px;
+}
+.todoCard-hoverBtn:nth-child(1){
+    color: rgb(72, 72, 212);
+}
+.todoCard-hoverBtn:nth-child(2){
+    color: red;
+    font-size: 22px;
 }
