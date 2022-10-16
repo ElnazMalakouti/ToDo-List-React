@@ -7,12 +7,6 @@ const TodoCard = ({taskId , taskText , dataState , setDataState , editTaskShow ,
 
     const [taskDoneBtn , setTaskDoneBtn] = useState(false)
 
-    function editTask(newTask){
-        const newID = newTask.id
-        const newText = newTask.text
-        const newisDone = false
-
-    }
 
     return(
         <div className="cardDiv">
@@ -33,7 +27,7 @@ const TodoCard = ({taskId , taskText , dataState , setDataState , editTaskShow ,
             </div>
             <div className="rightPanel-cardDiv">
 
-                <button className="todoCard-hoverBtn" onClick={() => setEditTaskShow(true)}>
+                <button className="todoCard-hoverBtn" onClick={() => setEditTaskShow(taskId)}>
                     <><FaEdit/></>
                 </button>
 

@@ -6,19 +6,6 @@
     align-items: center;
 }
 
-.closeBtn{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border-width: 1px;
-    background-color: transparent;
-}
-.editInfo{
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-}
-
 .todoDiv{
     width: 43%;
     height: 70%;

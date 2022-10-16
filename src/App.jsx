@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-import Button from './components/TasksButton'
 import InfoCard from './components/InfoCard'
 import InfoDoneCard from './components/InfoDoneCard'
 import Input from './components/Input'
@@ -13,13 +12,13 @@ function App() {
 
   const [dataState , setDataState] = useState([])
   const [haveDoneTask , setHaveDoneTask] = useState(false)
-  const [editTaskShow , setEditTaskShow] = useState(false)
+  const [editTaskShow , setEditTaskShow] = useState("")
   
   
 
   return (
   <div className='wholePage'>
-    <div className='todoDiv' style={editTaskShow ? {opacity : 0} : {opacity : 1}}>
+    <div className='todoDiv' style={editTaskShow ? {opacity : 0.2} : {opacity : 1}}>
       <p className='todoTitle'>Vue ToDo List</p>
       <div className='todoBox'>
         <div className='info-action-div'>
@@ -56,17 +55,19 @@ function App() {
              setEditTaskShow={setEditTaskShow}
              key={item.id}  
              taskId={item.id} 
-             taskText={item.text}/>
+             taskText={item.text}
+            />
              })
              }
         </div>
+        {/* {Boolean(editTaskShow) && <EditTask dataState={dataState} setDataState={setDataState}/>} */}
         <div className='add-input-div'>
           <Input dataState={dataState} setDataState={setDataState}/>
         </div>
       </div>
     </div>
-
-    {editTaskShow ? <EditTask editTaskShow={editTaskShow} setEditTaskShow={setEditTaskShow}/> : null}
+    {Boolean(editTaskShow) && <EditTask dataState={dataState} setDataState={setDataState} editTaskShow={editTaskShow} setEditTaskShow={setEditTaskShow}/>}
+    {/* {editTaskShow ? <EditTask editTaskShow={editTaskShow} setEditTaskShow={setEditTaskShow}/> : null} */}
   </div>
   )
 }
